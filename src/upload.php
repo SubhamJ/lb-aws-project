@@ -62,7 +62,7 @@ echo $result ['ObjectURL'];
 
 $sql="INSERT INTO content_details (detail_id,video_id,asset_info,asset_url)
 VALUES
-('$_POST[userid]','$_POST[detailid]','$_POST[videoid]','$_POST[assetinfo]','$result ['ObjectURL']')";
+('$_POST[detailid]','$_POST[videoid]','$_POST[assetinfo]','$result ['ObjectURL']')";
 
 if (!mysqli_query($con,$sql))
 {
