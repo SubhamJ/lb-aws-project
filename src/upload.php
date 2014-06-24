@@ -54,6 +54,9 @@ $result = $s3 -> putObject( array (
  		'ContentType' => $_FILES ["file"] ["type"],
 		'StorageClass' => 'REDUCED_REDUNDANCY'
 ) );
+
+$url=$result ['ObjectURL'];
+
 } catch (Exception $e){
 	echo $e->getMessage()."\n";
 }
@@ -62,7 +65,7 @@ echo $result ['ObjectURL'];
 
 $sql="INSERT INTO content_details (detail_id,video_id,asset_info,asset_url)
 VALUES
-('$_POST[detailid]','$_POST[videoid]','$_POST[assetinfo]','$result ['ObjectURL']')";
+('$_POST[detailid]','$_POST[videoid]','$_POST[assetinfo]','$url')";
 
 if (!mysqli_query($con,$sql))
 {
