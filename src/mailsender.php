@@ -4,7 +4,13 @@ include_once("Mail.php");
 error_reporting(E_ERROR | E_PARSE);
 
 // Create connection
-$con = mysqli_connect ( "localhost", "root", "", "toonify" );
+
+$host=file_get_contents("host.txt");
+$username=file_get_contents("username.txt");
+$password=file_get_contents("password.txt");
+$database=file_get_contents("database.txt");
+
+$con=mysqli_connect($host,$username,$password,$database);
 
 // Check connection
 if (mysqli_connect_errno ()) {
